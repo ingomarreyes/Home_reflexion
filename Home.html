@@ -28,6 +28,7 @@
       <!-- Contenido centrado -->
       <figure class="flex flex-col justify-center items-center">
         <blockquote class="text-center">
+          <span id="current-date" class="text-gray-500 text-sm sm:text-base mb-2 block"></span>
           <span class="text-yellow-600 text-[clamp(2rem,5vw,4rem)] sm:text-[clamp(3rem,2vw,5rem)]">
             <i
               class="fa-solid fa-star text-yellow-700 m-4 sm:m-8 group-hover:text-yellow-400 group-focus:text-yellow-400 transition-colors duration-200"></i>
@@ -71,6 +72,23 @@
 
   <script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const fecha = new Date();
+
+    // Día en dos dígitos
+    const dia = String(fecha.getDate()).padStart(2, '0');
+
+    // Array con los nombres de los meses
+    const meses = [
+      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    ];
+    const mes = meses[fecha.getMonth()]; // getMonth() devuelve 0-11
+
+    const anio = new Date().getFullYear();
+
+    // Mostrar en el span
+    document.getElementById('current-date').textContent = `${dia} de ${mes}, ${anio}`;
   </script>
 
 </body>
