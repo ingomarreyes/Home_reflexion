@@ -130,15 +130,17 @@
     <!-- COLUMNA DERECHA -->
     <div class="md:w-2/5 flex flex-col items-center gap-6">
 
-      <!-- Imagen con efecto hover (centrada correctamente) -->
-      <div class="flex justify-center w-full mb-4 group relative">
+      <!-- Imagen con efecto hover en PC y click en móvil -->
+      <div class="flex justify-center w-full mb-4 group relative" id="photo-container">
         <!-- Imagen principal -->
         <img src="images/omarreyes.jpg" alt="Omar Yesid Reyes Tolosa"
-          class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full border-4 border-white shadow-xl object-cover transition-opacity duration-500 group-hover:opacity-0">
+          class="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full border-4 border-white shadow-xl object-cover transition-opacity duration-500 group-hover:opacity-0"
+          id="photo1">
 
         <!-- Imagen alternativa -->
         <img src="images/omarreyes2.png" alt="Omar Reyes alternativa"
-          class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full border-4 border-white shadow-xl object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full border-4 border-white shadow-xl object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          id="photo2">
       </div>
 
       <!-- Tarjetas -->
@@ -203,6 +205,24 @@
   <script>
     AOS.init({ duration: 800, once: true });
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Cambiar imagen en móvil al hacer click
+    const photo1 = document.getElementById('photo1');
+    const photo2 = document.getElementById('photo2');
+    const container = document.getElementById('photo-container');
+
+    container.addEventListener('click', () => {
+      // Solo en pantallas pequeñas (<768px)
+      if (window.innerWidth < 768) {
+        if (photo1.style.opacity === '0') {
+          photo1.style.opacity = '1';
+          photo2.style.opacity = '0';
+        } else {
+          photo1.style.opacity = '0';
+          photo2.style.opacity = '1';
+        }
+      }
+    });
   </script>
 
 </body>
