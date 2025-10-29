@@ -8,18 +8,50 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="images/favicon.png" sizes="512x512">
   <title>ToolsTIC</title>
+  <style>
+    /* Marca de agua */
+    .marca-agua {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(2rem, 10vw, 6rem);
+      color: rgba(100, 100, 100, 0.1);
+      font-weight: 900;
+      text-transform: uppercase;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+  </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col relative overflow-hidden">
+
+  <!-- Marca de agua -->
+  <div class="marca-agua">EN CONSTRUCCIÓN</div>
 
   <!-- HEADER -->
-  <header
-    class="fixed top-0 z-50 w-full bg-gradient-to-r from-slate-800 to-indigo-600 shadow flex items-center p-2 sm:p-4">
-    <img src="images/ToolsTIC_header.png" alt="Logo ToolsTIC" class="h-6 sm:h-8 md:h-10 lg:h-12 max-w-full h-auto">
+  <header class="fixed top-0 z-50 w-full bg-gradient-to-r from-slate-800 to-indigo-600 shadow flex items-center justify-between p-2 sm:p-4">
+    
+    <!-- Logo (ahora es un botón que lleva al inicio) -->
+    <a href="Home.html" class="flex items-center">
+      <img src="images/ToolsTIC_header.png" alt="Logo ToolsTIC"
+        class="h-6 sm:h-8 md:h-10 lg:h-12 max-w-full h-auto cursor-pointer transition-transform duration-300 hover:scale-105">
+    </a>
+
+    <!-- Botones de navegación -->
+    <nav class="flex items-center space-x-4 sm:space-x-6">
+      <a href="Home.html"
+        class="text-white font-medium transition-colors duration-300 hover:text-yellow-300">Inicio</a>
+      <a href="QuienesSomos.html"
+        class="text-white font-medium transition-colors duration-300 hover:text-yellow-300">Quiénes somos</a>
+    </nav>
   </header>
 
   <!-- MAIN -->
-  <main class="flex-1 pt-24 pb-4 px-4 flex items-center justify-center">
+  <main class="flex-1 pt-24 pb-4 px-4 flex items-center justify-center relative z-10">
     <section class="group relative overflow-hidden rounded-full border-2 border-yellow-600 border-dashed
                 w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 aspect-square min-w-[200px]
                 flex flex-col justify-center items-center transform transition-transform duration-200
@@ -35,13 +67,8 @@
           </span>
           <p
             class="text-gray-600 font-semibold italic text-[clamp(0.9rem,2.5vw,1.5rem)] sm:text-[clamp(1rem,2vw,1.5rem)]">
-            “Estaba ciego, ahora veo la luz y el resplandor de tu belleza.”
+            “La paciencia es la madre del éxito.”
           </p>
-          - <!--<p>“Qué bonito es verte durmiendo por la mañana, hermosa como un ángel.”</p>
--        <p>“La belleza se termina dónde comienza la ignorancia.”</p>
--        <p>“La belleza se encuentra en el alma de las personas.”</p>
-<p>“La belleza es un defecto que se va con el tiempo.”</p>
-<p>“La belleza es un defecto, con mucha fama.”</p>-->
         </blockquote>
         <figcaption class="mt-4 text-center font-semibold text-gray-600">
           Anónimo
@@ -69,7 +96,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-800 text-white p-4 text-center mt-auto">
+  <footer class="bg-gray-800 text-white p-4 text-center mt-auto relative z-10">
     <div class="text-gray-400 text-[clamp(0.7rem,2vw,1rem)] sm:text-[clamp(0.75rem,2vw,1rem)]">
       © <span id="current-year"></span> ToolsTIC. Todos los derechos reservados.
     </div>
@@ -79,23 +106,16 @@
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     const fecha = new Date();
-
-    // Día en dos dígitos
     const dia = String(fecha.getDate()).padStart(2, '0');
-
-    // Array con los nombres de los meses
     const meses = [
       'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
       'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
     ];
-    const mes = meses[fecha.getMonth()]; // getMonth() devuelve 0-11
+    const mes = meses[fecha.getMonth()];
+    const anio = fecha.getFullYear();
 
-    const anio = new Date().getFullYear();
-
-    // Mostrar en el span
     document.getElementById('current-date').textContent = `${dia} de ${mes}, ${anio}`;
   </script>
 
 </body>
-
 </html>
