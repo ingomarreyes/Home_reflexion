@@ -1,3 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="images/favicon.png" sizes="512x512">
+  <title>ToolsTIC</title>
+  <style>
+    /* Marca de agua */
+    .marca-agua {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(2rem, 10vw, 6rem);
+      color: rgba(100, 100, 100, 0.1);
+      font-weight: 900;
+      text-transform: uppercase;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
 <body class="min-h-screen flex flex-col relative overflow-hidden bg-white">
 
   <!-- Marca de agua -->
@@ -89,3 +118,5 @@
   </script>
 
 </body>
+
+</html>
