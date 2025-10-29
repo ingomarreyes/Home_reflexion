@@ -1,67 +1,43 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="images/favicon.png" sizes="512x512">
-  <title>ToolsTIC</title>
-  <style>
-    /* Marca de agua */
-    .marca-agua {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(2rem, 10vw, 6rem);
-      color: rgba(100, 100, 100, 0.1);
-      font-weight: 900;
-      text-transform: uppercase;
-      z-index: 0;
-      pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
-    }
-  </style>
-</head>
-
-<body class="min-h-screen flex flex-col relative overflow-hidden">
+<body class="min-h-screen flex flex-col relative overflow-hidden bg-white">
 
   <!-- Marca de agua -->
   <div class="marca-agua">EN CONSTRUCCIÓN</div>
 
-<!-- HEADER -->
-<header class="fixed top-0 z-50 w-full bg-gradient-to-r from-slate-800 to-indigo-600 shadow flex items-center justify-between p-2 sm:p-3 md:p-4">
+  <!-- HEADER -->
+  <header
+    class="fixed top-0 z-50 w-full bg-gradient-to-r from-slate-800 to-indigo-600 shadow flex items-center justify-between py-3 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8">
 
-  <!-- Logo (botón al inicio) -->
-  <a href="Home.html" class="flex items-center">
-    <img src="images/ToolsTIC_header.png" alt="Logo ToolsTIC"
-      class="h-6 sm:h-8 md:h-10 lg:h-12 w-auto cursor-pointer transition-transform duration-300 hover:scale-105">
-  </a>
+    <!-- Logo -->
+    <a href="Home.html" class="flex items-center">
+      <img src="images/ToolsTIC_header.png" alt="Logo ToolsTIC"
+        class="h-8 sm:h-9 md:h-10 lg:h-12 w-auto cursor-pointer transition-transform duration-300 hover:scale-105">
+    </a>
 
-  <!-- Botones de navegación -->
-  <nav class="flex items-center space-x-3 sm:space-x-5 md:space-x-6">
-    <a href="Home.html"
-      class="text-white text-sm sm:text-base font-medium transition-colors duration-300 hover:text-yellow-300">Inicio</a>
-    <a href="QuienesSomos.html"
-      class="text-white text-sm sm:text-base font-medium transition-colors duration-300 hover:text-yellow-300">Quiénes somos</a>
-  </nav>
-</header>
+    <!-- Navegación -->
+    <nav class="flex items-center space-x-4 sm:space-x-5 md:space-x-6">
+      <a href="Home.html"
+        class="text-white text-base sm:text-lg font-medium px-2 py-1 sm:px-3 sm:py-2 rounded-md transition-colors duration-300 hover:text-yellow-300 hover:bg-indigo-700/30">
+        Inicio
+      </a>
+      <a href="QuienesSomos.html"
+        class="text-white text-base sm:text-lg font-medium px-2 py-1 sm:px-3 sm:py-2 rounded-md transition-colors duration-300 hover:text-yellow-300 hover:bg-indigo-700/30">
+        Quiénes somos
+      </a>
+    </nav>
+  </header>
 
   <!-- MAIN -->
-  <main class="flex-1 pt-24 pb-4 px-4 flex items-center justify-center relative z-10">
-    <section class="group relative overflow-hidden rounded-full border-2 border-yellow-600 border-dashed
-                w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 aspect-square min-w-[200px]
-                flex flex-col justify-center items-center transform transition-transform duration-200
-                hover:scale-105 focus:scale-110" tabindex="0">
+  <main class="flex-1 pt-28 pb-20 px-4 flex items-center justify-center relative z-10">
+    <section
+      class="group relative overflow-hidden rounded-full border-2 border-yellow-600 border-dashed w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 aspect-square min-w-[200px] flex flex-col justify-center items-center transform transition-transform duration-200 hover:scale-105 focus:scale-110"
+      tabindex="0">
 
-      <!-- Contenido centrado -->
+      <!-- Contenido -->
       <figure class="flex flex-col justify-center items-center">
         <blockquote class="text-center">
           <span id="current-date" class="text-gray-500 text-sm sm:text-base mb-2 block"></span>
-          <span class="text-yellow-600 text-[clamp(2rem,5vw,4rem)] sm:text-[clamp(3rem,2vw,5rem)]">
+          <span
+            class="text-yellow-600 text-[clamp(2rem,5vw,4rem)] sm:text-[clamp(3rem,2vw,5rem)]">
             <i
               class="fa-solid fa-star text-yellow-700 m-4 sm:m-8 group-hover:text-yellow-400 group-focus:text-yellow-400 transition-colors duration-200"></i>
           </span>
@@ -74,7 +50,6 @@
           Anónimo
         </figcaption>
       </figure>
-
     </section>
   </main>
 
@@ -96,8 +71,8 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-800 text-white p-4 text-center mt-auto relative z-10">
-    <div class="text-gray-400 text-[clamp(0.7rem,2vw,1rem)] sm:text-[clamp(0.75rem,2vw,1rem)]">
+  <footer class="bg-gray-800 text-white py-4 text-center mt-auto relative z-10">
+    <div class="text-gray-400 text-[clamp(0.75rem,2vw,1rem)]">
       © <span id="current-year"></span> ToolsTIC. Todos los derechos reservados.
     </div>
   </footer>
@@ -107,15 +82,10 @@
 
     const fecha = new Date();
     const dia = String(fecha.getDate()).padStart(2, '0');
-    const meses = [
-      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-    ];
+    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
     const mes = meses[fecha.getMonth()];
     const anio = fecha.getFullYear();
-
     document.getElementById('current-date').textContent = `${dia} de ${mes}, ${anio}`;
   </script>
 
 </body>
-</html>
